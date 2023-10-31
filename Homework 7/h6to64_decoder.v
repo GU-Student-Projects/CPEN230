@@ -17,7 +17,7 @@ module h6to64 (
     output [63:0] out
 );
 
-    wire [7:0] sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8;
+    wire [7:0] sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sub9;
 
     h3to8 u1 (.in(in[2:0]), .out(sub1));
     h3to8 u2 (.in(in[5:3]), .out(sub2));
@@ -27,7 +27,8 @@ module h6to64 (
     h3to8 u6 (.in(in[5:3]), .out(sub6));
     h3to8 u7 (.in(in[2:0]), .out(sub7));
     h3to8 u8 (.in(in[5:3]), .out(sub8));
+    h3to8 u8 (.in(in[2:0]), .out(sub9));
 
-    assign out = {sub8, sub7, sub6, sub5, sub4, sub3, sub2, sub1}
+    assign out = {sub9, sub8, sub7, sub6, sub5, sub4, sub3, sub2, sub1}
 
 endmodule
