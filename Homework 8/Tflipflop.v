@@ -4,7 +4,7 @@ module tFlipFlop(
     output reg Q
 );
 
-always @(*)
+always @(posedge clear)
     begin
         if (clear)
             Q <= 1'b0
